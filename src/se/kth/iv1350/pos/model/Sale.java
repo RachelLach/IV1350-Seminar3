@@ -5,7 +5,7 @@ import java.util.List;
 
 /**
  * We Represent a sale transaction and managing items with calculating totals,
- * then retrieve the list of items in the sale.
+ * then retrieve the list of items in the sale. 
  */
 
 public class Sale {
