@@ -1,9 +1,6 @@
 package se.kth.iv1350.pos.model;
 import java.time.LocalDateTime;
 
-/**
- * In this class we represent and create a receipt.
- * */
 public class Receipt {
     private final Sale sale;
 

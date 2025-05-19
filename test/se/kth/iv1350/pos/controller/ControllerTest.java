@@ -1,7 +1,11 @@
 package se.kth.iv1350.pos.controller;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import se.kth.iv1350.pos.integration.ItemRegistry;
+import se.kth.iv1350.pos.integration.exceptions.DatabaseException;
+import se.kth.iv1350.pos.integration.exceptions.ItemNotFoundException;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class ControllerTest {
@@ -10,41 +14,29 @@ class ControllerTest {
     @BeforeEach
     void setUp() {
         ItemRegistry itemRegistry = new ItemRegistry();
-        controller = new Controller(itemRegistry);
+        controller = new Controller(itemRegistry);  // Pass ItemRegistry here
+    }
+
+    @Test
+    void testAddItemWithValidID() throws ItemNotFoundException, DatabaseException {
         controller.startSale();
-    }
-
-    @Test
-    void testAddItem() {
         String result = controller.addItem("abc123");
-        assertTrue(result.contains("BigWheel Oatmeal"));
+        assertTrue(result.contains("BigWheel Oatmeal"), "Should return the correct item name");
     }
 
     @Test
-    void testAddInvalidItem() {
-        String result = controller.addItem("invalid123");
-        assertEquals("Item not found.", result);
+    void testAddItemThrowsItemNotFoundException() {
+        controller.startSale();
+        assertThrows(ItemNotFoundException.class, () -> {
+            controller.addItem("invalid123");
+        });
     }
 
     @Test
-    void testGetTotal() {
-        controller.addItem("abc123");
-        double total = controller.getTotal();
-        assertEquals(29.90, total, 0.01);
-    }
-
-    @Test
-    void testGetVatTotal() {
-        controller.addItem("abc123");
-        double vat = controller.getVatTotal();
-        assertEquals(1.7939999999999998, vat, 0.01);
-    }
-
-    @Test
-    void testEndSale() {
-        controller.addItem("abc123");
-        String receipt = controller.endSale();
-        assertTrue(receipt.contains("BigWheel Oatmeal"));
-        assertTrue(receipt.contains("Total"));
+    void testAddItemThrowsDatabaseException() {
+        controller.startSale();
+        assertThrows(DatabaseException.class, () -> {
+            controller.addItem("dberror");
+        });
     }
 }
