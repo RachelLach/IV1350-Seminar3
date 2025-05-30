@@ -8,17 +8,34 @@ import se.kth.iv1350.pos.model.Sale;
 import java.util.ArrayList;
 import java.util.List;
 import se.kth.iv1350.pos.model.observers.TotalRevenueObserver;
-
+/**
+ * The {@code Controller} class handles the main logic for the POS (Point of Sale) system.
+ * It connects the view (user interface) with the model (business logic), and manages
+ * the overall sale process: starting a sale, adding items, calculating totals, generating receipts,
+ * and notifying observers about revenue updates.
+ *This class helps keep the system organized by following the MVC pattern. It also
+ * supports the Observer pattern by letting other parts of the program observe total revenue changes.
+ */
 public class Controller {
     private Sale currentSale;
     private final ItemRegistry itemRegistry;
     private final List<TotalRevenueObserver> revenueObservers = new ArrayList<>();
     private double totalRevenue = 0;
 
+    /**
+     * Creates a new instance of the controller.
+     *
+     * @param itemRegistry The registry that holds all the items in the system.
+     */
     public Controller(ItemRegistry itemRegistry) {
         this.itemRegistry = itemRegistry;
     }
 
+    /**
+     * Adds an observer that will be notified whenever the total revenue is updated.
+     *
+     * @param observer The observer that will listen for revenue updates.
+     */
     public void addRevenueObserver(TotalRevenueObserver observer) {
         revenueObservers.add(observer);
     }
@@ -47,7 +64,6 @@ public class Controller {
         return currentSale.getTotal();
     }
 
-    // ✅ This method was missing
     public double getVatTotal() {
         return currentSale.getTotalVAT();
     }

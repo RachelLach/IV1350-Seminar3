@@ -1,0 +1,28 @@
+---- Exception logged at 2025-05-19T15:23:44.792598100 ----
+se.kth.iv1350.pos.integration.exceptions.ItemNotFoundException: Item with ID 'Item with ID invalid123 not found.' was not found.
+	at se.kth.iv1350.pos.integration.ItemRegistry.findItem(ItemRegistry.java:22)
+	at se.kth.iv1350.pos.controller.Controller.addItem(Controller.java:23)
+	at se.kth.iv1350.pos.view.View.<init>(View.java:24)
+	at Main.main(Main.java:12)
+--------------------------------------------------------
+---- Exception logged at 2025-05-19T15:23:44.797658700 ----
+se.kth.iv1350.pos.integration.exceptions.DatabaseException: Database access error: Database connection error occurred.
+	at se.kth.iv1350.pos.integration.ItemRegistry.findItem(ItemRegistry.java:18)
+	at se.kth.iv1350.pos.controller.Controller.addItem(Controller.java:23)
+	at se.kth.iv1350.pos.view.View.<init>(View.java:42)
+	at Main.main(Main.java:12)
+--------------------------------------------------------
+---- Exception logged at 2025-05-19T15:23:56.228878700 ----
+se.kth.iv1350.pos.integration.exceptions.ItemNotFoundException: Item with ID 'Item with ID invalid123 not found.' was not found.
+	at se.kth.iv1350.pos.integration.ItemRegistry.findItem(ItemRegistry.java:22)
+	at se.kth.iv1350.pos.controller.Controller.addItem(Controller.java:23)
+	at se.kth.iv1350.pos.view.View.<init>(View.java:24)
+	at Main.main(Main.java:12)
+--------------------------------------------------------
+---- Exception logged at 2025-05-19T15:23:56.232775100 ----
+se.kth.iv1350.pos.integration.exceptions.DatabaseException: Database access error: Database connection error occurred.
+	at se.kth.iv1350.pos.integration.ItemRegistry.findItem(ItemRegistry.java:18)
+	at se.kth.iv1350.pos.controller.Controller.addItem(Controller.java:23)
+	at se.kth.iv1350.pos.view.View.<init>(View.java:42)
+	at Main.main(Main.java:12)
+--------------------------------------------------------
