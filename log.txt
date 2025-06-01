@@ -1,0 +1,9 @@
+EXCEPTION: Item with ID 'Item with ID invalid123 not found.' was not found.
+EXCEPTION: Database access error: Database connection error occurred.
+LOG: Total revenue so far: 44,80 SEK
+EXCEPTION: Item with ID 'Item with ID invalid123 not found.' was not found.
+EXCEPTION: Database access error: Database connection error occurred.
+LOG: Total revenue so far: 44,80 SEK
+EXCEPTION: Item with ID 'Item with ID invalid123 not found.' was not found.
+EXCEPTION: Database access error: Database connection error occurred.
+LOG: Total revenue so far: 44,80 SEK
