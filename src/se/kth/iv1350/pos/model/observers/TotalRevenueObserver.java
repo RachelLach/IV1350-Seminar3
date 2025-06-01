@@ -8,7 +8,6 @@ package se.kth.iv1350.pos.model.observers;
 public interface TotalRevenueObserver {
     /**
      * Method called to notify the observer of the new total revenue.
-     *
      * @param totalRevenue the updated total revenue amount
      */
     void updateTotalRevenue(double totalRevenue);

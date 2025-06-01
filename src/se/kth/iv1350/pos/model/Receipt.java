@@ -1,13 +1,34 @@
 package se.kth.iv1350.pos.model;
 import java.time.LocalDateTime;
 
+/**
+ * Represents a receipt for a completed sale.
+ * The receipt includes details such as items purchased, quantities, total cost, VAT,
+ * and a timestamp of the sale.
+ */
 public class Receipt {
     private final Sale sale;
 
+    /**
+     * Creates a new {@code Receipt} instance for the given sale.
+     * @param sale The {@link Sale} object containing the items and totals for this transaction.
+     */
     public Receipt(Sale sale) {
         this.sale = sale;
     }
-
+    /**
+     * Generates a textual representation of the receipt.
+     * The receipt includes:
+     * <ul>
+     *     <li>Date and time of the sale</li>
+     *     <li>List of items with quantity, unit price, and subtotal</li>
+     *     <li>Total cost</li>
+     *     <li>Total VAT</li>
+     *     <li>Assumed cash payment of 100 SEK</li>
+     *     <li>Calculated change</li>
+     * </ul>
+     * @return A formatted {@code String} representing the receipt details.
+     */
     @Override
     public String toString() {
         StringBuilder receipt = new StringBuilder();
